@@ -94,6 +94,7 @@ def helper_contract(w3):
 
 @pytest.fixture
 def userop(wallet_contract):
+    print("wallet address:", wallet_contract.address)
     return UserOperation(
         sender=wallet_contract.address,
         callData=wallet_contract.encodeABI(fn_name="setState", args=[1111111]),
